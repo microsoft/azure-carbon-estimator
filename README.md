@@ -1,8 +1,10 @@
-# Azure-importer
+# Azure-importer or Azure-Carbon-Estimator
 
-> [!NOTE] > `Azure Importer` is an unofficial, not part of the IF standard library. This means the IF core team are not closely monitoring these plugins to keep them up to date. You should do your own research before implementing them!
+> [!NOTE] > `Azure Importer`  is a Microsoft open source project and  not part of the IF standard library. You should do your own research before implementing them!
 
-The Azure importer plugin allows you to provide some basic details about an Azure virtual machine and automatically populate your `manifest` with usage metrics that can then be passed along a plugin pipeline to calculate energy and carbon impacts.
+The Azure importer plugin allows you to provide some basic details about Azure resources and automatically populate your `manifest` with usage metrics that can then be passed along a plugin pipeline to calculate energy and carbon impacts.
+
+Currently the Azure importer has been implemented for Azure Virtual Machines but the plan is to extend the SDK to all Azure resources
 
 ## Prerequisites
 

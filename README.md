@@ -1,6 +1,6 @@
 # Azure-importer or Azure-Carbon-Estimator
 
-> [!NOTE] > `Azure Importer`  is a Microsoft open source project . You should do your own research before implementing them!
+> [!NOTE] > `Azure Importer`  is a Microsoft open source project and is being actively worked upon to help calculate emissions from Azure workloads.However active audit of the methodology of emission calculation is not yet done but is planned for future. Hence please do your own research before implementing them and reporting them based on the numbers emitted from the project!
 
 The Azure importer plugin allows you to provide some basic details about Azure resources and automatically populate your `manifest` with usage metrics that can then be passed along a plugin pipeline to calculate energy and carbon impacts.
 

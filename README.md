@@ -17,12 +17,12 @@ Hence if we want to automate the calculation of software emissions for an entire
 
 Following are the different components that we can envision in the Azure carbon estimator tool:
 
-**A configuration module that allows the user to specify the Azure resources, metrics, and time range for collecting observations. In our case this is the manifest file.
-**An API client module that interacts with the Azure Monitor API to retrieve the metric values for the specified resources and time range.
-**The Impact Framework computation pipeline that takes the output from Azure importer and provides the operational and embodied emissions. For doing this the impact framework has multiple plugins added into it's computational pipeline like Teads Curve, Cloud Metadata, Cloud Carbon Footprint, SCI-E, SCI-O, SCI and so on. The details of how the plugins are stitched together to get the output is detailed out in the Process section below.
+* A configuration module that allows the user to specify the Azure resources, metrics, and time range for collecting observations. In our case this is the manifest file.
+* An API client module that interacts with the Azure Monitor API to retrieve the metric values for the specified resources and time range.
+* The Impact Framework computation pipeline that takes the output from Azure importer and provides the operational and embodied emissions. For doing this the impact framework has multiple plugins added into it's computational pipeline like Teads Curve, Cloud Metadata, Cloud Carbon Footprint, SCI-E, SCI-O, SCI and so on. The details of how the plugins are stitched together to get the output is detailed out in the Process section below.
 
 The following diagram illustrates the high-level architecture of the Azure importer plugin extension.
-![image]
+![image] (https://github.com/microsoft/azure-carbon-estimator/blob/Hackathon2024/images/architecture-azurecarbonestimator.jpg)
 
 
 ## Get Started 

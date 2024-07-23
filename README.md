@@ -1,12 +1,33 @@
-# Azure-importer or Azure-Carbon-Estimator
+#  Azure-Carbon-Estimator alias Azure-importer 
 
-> [!NOTE] > `Azure Importer`  is a Microsoft open source project and  not part of the IF standard library. You should do your own research before implementing them!
+> [!NOTE] > `Azure Importer`  is a Microsoft open source project  to help calculate emissions from Azure workloads.The project is under development and hence please use the source code for experimentation and research
 
-The Azure importer plugin allows you to provide some basic details about Azure resources and automatically populate your `manifest` with usage metrics that can then be passed along a plugin pipeline to calculate energy and carbon impacts.
+The Azure importer plugin allows you to provide some basic details about Azure resources and automatically populate your `manifest` with usage metrics that can then be passed along a plugin pipeline to calculate energy and carbon impacts.The importer uses Impact Framework (https://if.greensoftware.foundation/) which uses the  Software Carbon Intensity (SCI) specifications to calculate emissions of workloads running on Azure. 
 
-Currently the Azure importer has been implemented for Azure Virtual Machines but the plan is to extend the SDK to all Azure resources
+Based on our analysis we have observed that the workloads running on any compute, storage or network platforms draw energy from the underlying host. This energy can be measured through metrics like CPU utilization, memory utilization etc. By measuring these metrices over fixed time period and passing them through the IF computational pipeline we will be able to calculate the SCI score for these workloads on Azure.
 
-## Prerequisites
+The plugin will use the Azure Monitor API to collect observations from Azure resources and feed them into the Impact Framework computation pipeline. The project will also support batch API and multiple metrics for the SCI calculation.
+
+The importer will take the subscriptionID and resource group name as input and run through all the azure services deployed in that specific resource group.
+
+## Architecture
+In most applications developed for Azure , the resource group and/or the subscription serve as the bounded context . i.e. all the components of the application are deployed entirely in a single resource group or spread across multiple resource groups within the same subscription.
+
+Hence if we want to automate the calculation of software emissions for an entire application that is built on Azure with the help of the Impact Framework, we should have the capability to provide just the subscription ID and the pipeline should calculate the end result.
+
+Following are the different components that we can envision in the Azure carbon estimator tool:
+
+* A configuration module that allows the user to specify the Azure resources, metrics, and time range for collecting observations. In our case this is the manifest file.
+* An API client module that interacts with the Azure Monitor API to retrieve the metric values for the specified resources and time range.
+* The Impact Framework computation pipeline that takes the output from Azure importer and provides the operational and embodied emissions. For doing this the impact framework has multiple plugins added into it's computational pipeline like Teads Curve, Cloud Metadata, Cloud Carbon Footprint, SCI-E, SCI-O, SCI and so on. The details of how the plugins are stitched together to get the output is detailed out in the Process section below.
+
+The following diagram illustrates the high-level architecture of the Azure importer plugin extension.
+[![Architecture] (https://github.com/microsoft/azure-carbon-estimator/blob/Hackathon2024/images/architecture-azurecarbonestimator.jpg?raw=true)](https://github.com/microsoft/azure-carbon-estimator/blob/Hackathon2024/images/architecture-azurecarbonestimator.jpg?raw=true )
+
+
+## Get Started 
+
+The base version of code in this repository enables you to do this calculation for a workload running in an Azure VM instance.Use the below steps to get started.
 
 ### 1. Create an Azure VM instance
 

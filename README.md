@@ -22,7 +22,7 @@ Following are the different components that we can envision in the Azure carbon 
 * The Impact Framework computation pipeline that takes the output from Azure importer and provides the operational and embodied emissions. For doing this the impact framework has multiple plugins added into it's computational pipeline like Teads Curve, Cloud Metadata, Cloud Carbon Footprint, SCI-E, SCI-O, SCI and so on. The details of how the plugins are stitched together to get the output is detailed out in the Process section below.
 
 The following diagram illustrates the high-level architecture of the Azure importer plugin extension.
-!(https://github.com/microsoft/azure-carbon-estimator/blob/Hackathon2024/images/architecture-azurecarbonestimator.jpg?raw=true)
+[![Architecture] (https://github.com/microsoft/azure-carbon-estimator/blob/Hackathon2024/images/architecture-azurecarbonestimator.jpg?raw=true)
 
 
 ## Get Started 
